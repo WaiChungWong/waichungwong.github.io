@@ -1,0 +1,77 @@
+@import "./variables.scss";
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  transition: $animatetime1;
+  color: $black;
+
+  &:focus,
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  color: $black;
+}
+
+button {
+  border: none;
+  outline: none;
+  user-select: none;
+  background: none;
+  cursor: pointer;
+  transition: $animatetime1;
+
+  &:focus,
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadowdepth1;
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+}
+
+#app {
+  #mounted-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    animation: fade-out $animatetime2 1.5s forwards;
+  }
+
+  #logo-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  #content-wrapper {
+    position: relative;
+    min-height: 100vh;
+    animation: fade-in $animatetime2 forwards;
+  }
+}

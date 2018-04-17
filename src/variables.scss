@@ -1,0 +1,148 @@
+$white: #ffffff;
+$black: #555555;
+$primary: #4f5ebb;
+$lightgray: #f0f0f0;
+$gray: #d0d0d0;
+$darkgray: #a0a0a0;
+$error: #f44336;
+$light: rgba(255, 255, 255, 0.3);
+$brightlight: rgba(255, 255, 255, 0.8);
+$shadow: rgba(0, 0, 0, 0.2);
+$darkshadow: rgba(0, 0, 0, 0.5);
+
+$headerheight: 80px;
+$footerheight: 80px;
+
+$pagewidth: 1150px;
+
+$animatetime1: 0.3s;
+$animatetime2: 0.5s;
+
+$shadowdepth1: $shadow 0px 1px 5px;
+$shadowdepth2: $darkshadow 0px 1px 15px;
+
+@mixin gradient-background($color1: lighten($primary, 20), $color2: $primary) {
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+@mixin button-font($fontSize: 13px) {
+  font-weight: 200;
+  font-size: $fontSize;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@mixin round-border(
+  $color: $black,
+  $height: 50px,
+  $paddingH: 40px,
+  $thickness: 2px
+) {
+  border: $thickness solid $color;
+  border-radius: $height;
+  box-sizing: border-box;
+  height: $height;
+  padding: 0px $paddingH;
+  line-height: $height - 2 * $thickness;
+}
+
+@mixin bubble($color: $black, $height: 50px, $paddingH: 40px) {
+  height: $height;
+  padding: 0px $paddingH;
+  line-height: $height;
+  @include gradient-background();
+  color: $white;
+  border-radius: $height;
+}
+
+@mixin spinner($size: 20px, $color: $primary) {
+  width: $size;
+  height: $size;
+  position: relative;
+  text-align: center;
+  animation: spin 2s infinite linear;
+
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(to right, lighten($color, 20), $color);
+    border-radius: $size;
+    animation: bounce 2s infinite ease-in-out;
+  }
+
+  &::after {
+    top: auto;
+    bottom: 0px;
+    animation-delay: -1s;
+  }
+}
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: 420px) {
+      @content;
+    }
+  } @else if $media == mobile_landscape {
+    @media only screen and (max-width: 650px) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $media == tablet_landscape {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $media == small_laptop {
+    @media only screen and (max-width: 1260px) {
+      @content;
+    }
+  } @else if $media == common_laptop {
+    @media only screen and (max-width: 1366px) {
+      @content;
+    }
+  } @else if $media == mac_book_screen {
+    @media only screen and (max-width: 1442px) {
+      @content;
+    }
+  } @else if $media == small_desktop {
+    @media only screen and (max-width: 1660px) {
+      @content;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    padding-top: 0px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 20px;
+    opacity: 1;
+  }
+}

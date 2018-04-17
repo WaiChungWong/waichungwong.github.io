@@ -1,0 +1,62 @@
+@import "../../../../variables.scss";
+
+#home-wrapper {
+  animation-name: fade-in;
+  animation-duration: $animatetime1;
+
+  .page {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  #home-link {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  #home {
+    #home-signature {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      max-height: 70%;
+      transform: translate(-52%, -50%) rotate(-5deg);
+    }
+
+    span {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      font-family: Nunito;
+      font-size: 16px;
+      font-weight: 100;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $black;
+      opacity: 0;
+
+      &:nth-of-type(1) {
+        animation: slide-down $animatetime2 2s forwards;
+      }
+
+      &:nth-of-type(2) {
+        margin-top: 20px;
+        animation: slide-down $animatetime2 2.5s forwards;
+      }
+    }
+  }
+}

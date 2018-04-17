@@ -1,2 +1,3 @@
-# waichungwong.github.io
-My personal website
+# My personal website
+
+This website is built using `create-react-app` and SASS.

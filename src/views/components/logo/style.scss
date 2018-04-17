@@ -1,0 +1,43 @@
+@import "../../../variables.scss";
+
+.logo-group {
+  .logo-path,
+  .logo-dot {
+    stroke: $black;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke-width: 0;
+    fill: none;
+    transition: $animatetime1;
+  }
+
+  .logo-path {
+    animation: show-logo-path 1.5s forwards;
+  }
+
+  .logo-dot {
+    fill: $black;
+    opacity: 0;
+    animation: show-logo-dot 1.5s forwards;
+  }
+}
+
+@keyframes show-logo-path {
+  0% {
+    stroke-dashoffset: 1000;
+    stroke-width: 0;
+  }
+  100% {
+    stroke-dashoffset: 650;
+    stroke-width: 5;
+  }
+}
+
+@keyframes show-logo-dot {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

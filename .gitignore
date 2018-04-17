@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules
+
+# Built css files in development
+src/**/*.css
+
+# Deployment
+lib
+
+# Mac OS directory file
+.DS_Store
