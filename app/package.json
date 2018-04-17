@@ -17,16 +17,18 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
+    "ncp": "^2.0.0",
     "node-sass": "^4.8.3",
     "npm-run-all": "^4.0.2",
-    "react-scripts": "^1.1.1"
+    "react-scripts": "^1.1.1",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build",
+    "build": "npm run build-css && react-scripts build && node build.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
