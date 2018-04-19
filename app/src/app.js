@@ -4,7 +4,7 @@ import createHistory from "history/createBrowserHistory";
 
 import Logo from "./views/components/logo";
 
-import Home from "./views/pages/landing/home";
+import Home from "./views/pages/home";
 import NotFound from "./views/pages/notfound";
 
 import "./app.css";

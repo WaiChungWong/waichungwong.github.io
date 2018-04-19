@@ -3,8 +3,8 @@ import ClassNames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink as Link } from "react-router-dom";
 
-import Logo from "../../../components/logo";
-import Signature from "../../../components/signature";
+import Logo from "../../components/logo";
+import Signature from "../../components/signature";
 import Gallery from "./gallery";
 
 import "./style.css";
@@ -63,7 +63,7 @@ class Home extends Component {
   }
 
   render() {
-    const { showHomeLink, signatureStyle } = this.state;
+    const { showHomeLink: show, signatureStyle } = this.state;
     return (
       <div id="home-wrapper">
         <div id="home" className="page">
@@ -74,11 +74,7 @@ class Home extends Component {
         <div id="gallery" className="page">
           <Gallery />
         </div>
-        <Link
-          id="home-link"
-          className={ClassNames({ show: showHomeLink })}
-          to="/"
-        >
+        <Link id="home-link" className={ClassNames({ show })} to="/">
           <Logo />
         </Link>
       </div>
