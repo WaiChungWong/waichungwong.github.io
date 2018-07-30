@@ -1,77 +1,137 @@
 @import "./variables.scss";
 
-* {
-  font-family: "Nunito", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  transition: $animatetime1;
-  color: $black;
-
-  &:focus,
-  &:hover {
-    filter: brightness(1.1);
-  }
-}
-
-input,
-textarea {
-  border: none;
-  outline: none;
-}
-
 body {
+  font-family: Roboto, sans-serif;
   margin: 0px;
   padding: 0px;
+  background-color: $lightergray;
   color: $black;
-}
 
-button {
-  border: none;
-  outline: none;
-  user-select: none;
-  background: none;
-  cursor: pointer;
-  transition: $animatetime1;
-
-  &:focus,
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: $shadowdepth1;
-    filter: brightness(1.1);
-  }
-
-  &:active {
-    transform: translateY(0px);
-    box-shadow: none;
-  }
-}
-
-#app {
-  #mounted-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 120px;
-    transform: translate(-50%, -50%);
-    animation: fade-out $animatetime2 1.5s forwards;
-  }
-
-  #logo-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 120px;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-
-  #content-wrapper {
+  #app {
     position: relative;
     min-height: 100vh;
+    opacity: 0;
     animation: fade-in $animatetime2 forwards;
+
+    #app-logo {
+      position: fixed;
+      left: 50%;
+      width: 80px;
+      height: 60px;
+      transform: translateX(-50%);
+    }
+
+    section {
+      position: relative;
+      margin: auto;
+      padding: 60px 0px;
+      width: 90%;
+      max-width: 1000px;
+      min-height: 100vh;
+      box-sizing: border-box;
+
+      .headline {
+        display: inline-block;
+        width: 90%;
+        max-width: 450px;
+      }
+
+      .title {
+        display: block;
+        padding-bottom: 20px;
+        font-size: 60px;
+        font-weight: bold;
+        letter-spacing: 3px;
+
+        @include mobile() {
+          font-size: 40px;
+          text-align: center;
+        }
+      }
+
+      .subtitle {
+        font-size: 20px;
+        font-weight: lighter;
+        letter-spacing: 1.5px;
+        line-height: 28px;
+
+        @include mobile() {
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+
+      .list {
+        display: inline-block;
+        padding: 60px 0px;
+        width: 100%;
+      }
+
+      #main-headline {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .title,
+        .subtitle {
+          text-align: center;
+          transition: $animatetime2;
+          opacity: 0;
+
+          &.title {
+            animation: slide-up $animatetime2 $animatetime2 forwards;
+          }
+
+          &.subtitle {
+            animation: fade-in $animatetime2 $animatetime2 * 3 forwards;
+          }
+        }
+      }
+
+      #inspiration-headline {
+        float: right;
+
+        #inspiration-title,
+        #inspiration-subtitle {
+          text-align: right;
+        }
+      }
+
+      #inspiration-list {
+      }
+
+      #module-headline {
+        float: left;
+
+        #module-title,
+        #module-subtitle {
+          text-align: left;
+        }
+      }
+
+      #module-list {
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    padding-top: 20px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 0px;
+    opacity: 1;
   }
 }

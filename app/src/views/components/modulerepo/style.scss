@@ -1,0 +1,67 @@
+@import "../../../variables.scss";
+
+.module-repo {
+  .module-title {
+    font-size: 32px;
+    font-weight: lighter;
+    letter-spacing: 4px;
+
+    @include mobile() {
+      font-size: 28px;
+    }
+  }
+
+  .module-detail {
+    margin: 10px 0px 10px 20px;
+    max-height: 20px;
+    text-align: right;
+    overflow: hidden;
+    border-left: 1px solid;
+    transition: $animatetime2;
+
+    &.expanded {
+      max-height: 300px;
+
+      .module-description,
+      .module-link {
+        color: inherit;
+      }
+    }
+
+    .module-description,
+    .module-link {
+      padding: 0px 20px;
+      font-size: 20px;
+      font-weight: lighter;
+      letter-spacing: 1.5px;
+      line-height: 28px;
+      color: transparent;
+      transition: $animatetime2;
+
+      @include mobile() {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+
+    .module-description {
+      text-align: left;
+    }
+
+    .module-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        letter-spacing: 3px;
+      }
+
+      @include mobile() {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -12,29 +12,30 @@
   }
 
   .logo-path {
-    animation: show-logo-path 1.5s forwards;
+    stroke-width: 10;
+    animation: show-logo-path 2s linear forwards;
   }
 
   .logo-dot {
     fill: $black;
     opacity: 0;
-    animation: show-logo-dot 1.5s forwards;
+    animation: show-logo-dot 2s linear forwards;
   }
 }
 
 @keyframes show-logo-path {
   0% {
     stroke-dashoffset: 1000;
-    stroke-width: 0;
   }
+  75%,
   100% {
     stroke-dashoffset: 650;
-    stroke-width: 5;
   }
 }
 
 @keyframes show-logo-dot {
-  0% {
+  0%,
+  75% {
     opacity: 0;
   }
   100% {
