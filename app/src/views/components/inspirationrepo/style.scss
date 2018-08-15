@@ -34,7 +34,6 @@
 
       @include mobile() {
         width: 100%;
-        text-shadow: 1px 1px 0px $lightergray;
       }
 
       .description,
@@ -101,6 +100,7 @@
         .description,
         .link {
           color: inherit;
+          text-shadow: 1px 1px 0px $lightergray;
         }
       }
 
