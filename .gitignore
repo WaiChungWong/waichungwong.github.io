@@ -2,7 +2,7 @@
 **/node_modules
 
 # Built css files in development
-**/*.css
+app/**/*.css
 
 # Mac OS directory file
 .DS_Store
