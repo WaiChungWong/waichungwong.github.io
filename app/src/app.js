@@ -1,79 +1,120 @@
 import React, { Component } from "react";
-import { loadInspirations, loadModules } from "./utils";
+import ClassNames from "classnames";
 
+import { loadInspirations, loadModules } from "./utils";
+import Intro from "./views/sections/intro";
+import Inspirations from "./views/sections/inspirations";
+import Modules from "./views/sections/modules";
+import RandomShape from "./views/components/randomshape";
 import Logo from "./views/components/logo";
 import InspirationRepo from "./views/components/inspirationrepo";
 import ModuleRepo from "./views/components/modulerepo";
+import Contact from "./views/contact";
 
 import "./app.css";
+
+const { floor, max, random } = Math;
+const { body, documentElement: html } = document;
+const shapes = ["■", "□", "▲", "△", "●", "◯", "×"];
+const shapeCount = 30;
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { randomShapes: [], showContact: false };
+  }
+
+  addShape(top, left) {
+    const { randomShapes } = this.state;
+    let shape = shapes[floor(random() * shapes.length)];
+    let perspective = random();
+    let rotation = random();
+    let hue = random();
+
+    randomShapes.push({
+      top,
+      left,
+      shape,
+      perspective,
+      rotation,
+      hue
+    });
+
+    if (randomShapes.length > shapeCount) {
+      randomShapes.shift();
+    }
+
+    this.setState({ randomShapes });
   }
 
   async componentDidMount() {
     let inspirations = await loadInspirations();
     let modules = await loadModules();
 
-    this.setState({ inspirations, modules });
+    this.setState({ inspirations, modules }, () => {
+      for (let i = 0; i < shapeCount; i++) {
+        this.addShape(
+          random() *
+            max(
+              body.scrollHeight,
+              body.offsetHeight,
+              html.clientHeight,
+              html.scrollHeight,
+              html.offsetHeight
+            ),
+          random() *
+            max(
+              body.scrollWidth,
+              body.offsetWidth,
+              html.clientWidth,
+              html.scrollWidth,
+              html.offsetWidth
+            )
+        );
+      }
+    });
   }
 
   render() {
-    const { inspirations, modules } = this.state;
+    const { inspirations, modules, randomShapes, showContact } = this.state;
 
     return (
       <div id="app">
-        <Logo id="app-logo" />
-        <section>
-          <div id="main-headline" className="headline">
-            <div className="title">Hi, I’m John</div>
-            <div className="subtitle">
-              I’m a full-stack developer. Passionate about front-end
-              development. I’m into creating intuitive and attractive digital
-              experiences. And I love CSS and animations!
-            </div>
-          </div>
-        </section>
+        <Logo
+          id="app-logo"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className={ClassNames({ hide: showContact })}
+        />
+        <div
+          id="contact-toggle"
+          onClick={() => this.setState({ showContact: !showContact })}
+          className={ClassNames({ opened: showContact })}
+        >
+          <span className="open">contact me</span>
+          <span className="close">close</span>
+        </div>
+        <Intro className={ClassNames({ hide: showContact })} />
         {inspirations && (
-          <section>
-            <div id="inspiration-headline" className="headline">
-              <div id="inspiration-title" className="title">
-                Inspirations
-              </div>
-              <div id="inspiration-subtitle" className="subtitle">
-                Here are my random inspirations outside work. It may seem
-                meanlingless and unpractical, but hey, they’re just for fun!
-              </div>
-            </div>
-            <div id="inspiration-list" className="list">
-              {inspirations.map(({ id, ...props }) => (
-                <InspirationRepo key={id} {...props} />
-              ))}
-            </div>
-          </section>
+          <Inspirations className={ClassNames({ hide: showContact })}>
+            {inspirations.map(({ id, ...props }) => (
+              <InspirationRepo key={id} {...props} />
+            ))}
+          </Inspirations>
         )}
         {modules && (
-          <section>
-            <div id="module-headline" className="headline">
-              <div id="module-title" className="title">
-                NPM Modules
-              </div>
-              <div id="module-title" className="subtitle">
-                I like to build things, and I like making tools for that matter,
-                too. So here are my npm modules that I built for myself to use,
-                and hopefully, they become handy for other people as well.
-              </div>
-            </div>
-            <div id="module-list" className="list">
-              {modules.map(({ id, ...props }) => (
-                <ModuleRepo key={id} {...props} />
-              ))}
-            </div>
-          </section>
+          <Modules className={ClassNames({ hide: showContact })}>
+            {modules.map(({ id, ...props }) => (
+              <ModuleRepo key={id} {...props} />
+            ))}
+          </Modules>
         )}
+        <Contact className={ClassNames({ show: showContact })} />
+        {randomShapes.map((shape, i) => (
+          <RandomShape key={`shape-${i}`} {...shape} />
+        ))}
       </div>
     );
   }

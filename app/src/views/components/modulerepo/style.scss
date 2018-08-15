@@ -1,20 +1,25 @@
 @import "../../../variables.scss";
 
 .module-repo {
-  .module-title {
+  .name {
     font-size: 32px;
     font-weight: lighter;
     letter-spacing: 4px;
+    cursor: pointer;
+    transition: $animatetime2;
+
+    &:hover {
+      letter-spacing: 10px;
+    }
 
     @include mobile() {
       font-size: 28px;
     }
   }
 
-  .module-detail {
+  .detail {
     margin: 10px 0px 10px 20px;
     max-height: 20px;
-    text-align: right;
     overflow: hidden;
     border-left: 1px solid;
     transition: $animatetime2;
@@ -22,14 +27,14 @@
     &.expanded {
       max-height: 300px;
 
-      .module-description,
-      .module-link {
+      .description,
+      .link {
         color: inherit;
       }
     }
 
-    .module-description,
-    .module-link {
+    .description,
+    .link {
       padding: 0px 20px;
       font-size: 20px;
       font-weight: lighter;
@@ -44,18 +49,18 @@
       }
     }
 
-    .module-description {
-      text-align: left;
+    .description {
+      max-width: 600px;
     }
 
-    .module-link {
+    .link {
       display: inline-block;
       margin-top: 20px;
       font-weight: bold;
       text-decoration: none;
 
       &:hover {
-        letter-spacing: 3px;
+        letter-spacing: 5px;
       }
 
       @include mobile() {

@@ -10,17 +10,16 @@ class InspirationRepo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { expanded: false, canPlayVideo: false, playVideo: false };
+    this.state = { expanded: false, canPlayVideo: false };
 
     this.toggle = this.toggle.bind(this);
     this.expand = this.expand.bind(this);
     this.collapse = this.collapse.bind(this);
-    this.showVideo = this.showVideo.bind(this);
-    this.hideVideo = this.hideVideo.bind(this);
   }
 
   expand() {
     this.setState({ expanded: true });
+    this.video.play();
 
     document.addEventListener("mousedown", this.collapse);
   }
@@ -28,26 +27,9 @@ class InspirationRepo extends Component {
   collapse(event) {
     if (!event || !isWithinComponent(event.target, this.repo)) {
       this.setState({ expanded: false });
+      this.video.pause();
 
       document.removeEventListener("mousedown", this.collapse);
-    }
-  }
-
-  showVideo() {
-    const { canPlayVideo } = this.state;
-
-    if (canPlayVideo) {
-      this.setState({ playVideo: true });
-      this.video.play();
-    }
-  }
-
-  hideVideo() {
-    const { canPlayVideo } = this.state;
-
-    if (canPlayVideo) {
-      this.setState({ playVideo: false });
-      this.video.pause();
     }
   }
 
@@ -61,43 +43,40 @@ class InspirationRepo extends Component {
 
   render() {
     const { name, description } = this.props;
-    const { expanded, playVideo } = this.state;
+    const { expanded, canPlayVideo } = this.state;
 
     return (
-      <div
-        ref={r => (this.repo = r)}
-        className="inspiration-repo"
-        onMouseEnter={this.showVideo}
-        onMouseLeave={this.hideVideo}
-      >
-        <div className="inspiration-title" onClick={this.toggle}>
+      <div ref={r => (this.repo = r)} className="inspiration-repo">
+        <div className="name" onClick={this.toggle}>
           {name}
         </div>
-        <div className={ClassNames("inspiration-detail", { expanded })}>
-          {description && (
-            <div className="inspiration-description">{description}</div>
-          )}
-          <a
-            className="inspiration-link"
-            href={`https://waichungwong.github.io/${name}/build`}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className={ClassNames("content", { expanded })}>
+          <div className="detail">
+            {description && <div className="description">{description}</div>}
+            <a
+              className="link"
+              href={`https://waichungwong.github.io/${name}/build`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View
+            </a>
+          </div>
+          <video
+            ref={r => (this.video = r)}
+            className={ClassNames("video", {
+              expanded: expanded && canPlayVideo
+            })}
+            preload="auto"
+            loop
+            onCanPlayThrough={() => this.setState({ canPlayVideo: true })}
           >
-            View
-          </a>
+            <source
+              src={`https://waichungwong.github.io/${name}/demo.mp4`}
+              type="video/mp4"
+            />
+          </video>
         </div>
-        <video
-          ref={r => (this.video = r)}
-          className={ClassNames("inspiration-video", { show: playVideo })}
-          preload="auto"
-          loop
-          onCanPlayThrough={() => this.setState({ canPlayVideo: true })}
-        >
-          <source
-            src={`https://waichungwong.github.io/${name}/demo.mp4`}
-            type="video/mp4"
-          />
-        </video>
       </div>
     );
   }

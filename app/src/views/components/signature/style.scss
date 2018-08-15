@@ -2,13 +2,13 @@
 
 .signature-clip {
   .clip-stroke {
-    stroke: $black;
+    stroke: inherit;
     stroke-width: 1;
   }
 }
 
 .signature-stroke {
-  stroke: $black;
+  stroke: inherit;
   stroke-linecap: round;
   fill: none;
 
@@ -21,70 +21,32 @@
     stroke-width: 0;
     transition: $animatetime1;
   }
-
-  .stroke-J {
-    animation: show-J 3s forwards;
-  }
-
-  .stroke-dot {
-    animation: show-dot 3s forwards;
-  }
-
-  .stroke-W {
-    animation: show-W 3s forwards;
-  }
-
-  .stroke-ong {
-    animation: show-ong 3s forwards;
-  }
 }
 
-@keyframes show-J {
-  0% {
-    stroke-dashoffset: 1000;
-    stroke-width: 0;
-  }
-  20%,
-  100% {
-    stroke-dashoffset: 200;
-    stroke-width: 10;
-  }
-}
+@mixin show-signature() {
+  .signature-stroke {
+    .stroke-J {
+      transition: $animatetime2;
+      stroke-dashoffset: 200;
+      stroke-width: 10;
+    }
 
-@keyframes show-dot {
-  0%,
-  20% {
-    stroke-dashoffset: 1000;
-    stroke-width: 0;
-  }
-  30%,
-  100% {
-    stroke-dashoffset: 950;
-    stroke-width: 10;
-  }
-}
+    .stroke-dot {
+      transition: $animatetime1 $animatetime2;
+      stroke-dashoffset: 950;
+      stroke-width: 10;
+    }
 
-@keyframes show-W {
-  0%,
-  30% {
-    stroke-dashoffset: 1000;
-    stroke-width: 0;
-  }
-  60%,
-  100% {
-    stroke-dashoffset: 0;
-    stroke-width: 10;
-  }
-}
+    .stroke-W {
+      transition: $animatetime2 * 2 $animatetime2 * 2;
+      stroke-dashoffset: 0;
+      stroke-width: 10;
+    }
 
-@keyframes show-ong {
-  0%,
-  50% {
-    stroke-dashoffset: 1005;
-    stroke-width: 4;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    stroke-width: 10;
+    .stroke-ong {
+      transition: $animatetime2 * 2 $animatetime2 * 4;
+      stroke-dashoffset: 0;
+      stroke-width: 10;
+    }
   }
 }

@@ -3,7 +3,7 @@
 .logo-group {
   .logo-path,
   .logo-dot {
-    stroke: $black;
+    stroke: inherit;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     stroke-width: 0;
@@ -13,13 +13,13 @@
 
   .logo-path {
     stroke-width: 10;
-    animation: show-logo-path 2s linear forwards;
+    animation: show-logo-path 1s linear forwards;
   }
 
   .logo-dot {
-    fill: $black;
+    fill: inherit;
     opacity: 0;
-    animation: show-logo-dot 2s linear forwards;
+    animation: show-logo-dot 1s linear forwards;
   }
 }
 

@@ -1,0 +1,33 @@
+@import "../../../variables.scss";
+
+#intro {
+  .headline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .title {
+      font-size: 60px;
+
+      @include mobile() {
+        font-size: 46px;
+      }
+    }
+
+    .title,
+    .subtitle {
+      text-align: center;
+      transition: $animatetime2;
+      opacity: 0;
+
+      &.title {
+        animation: slide-up $animatetime2 0s forwards;
+      }
+
+      &.subtitle {
+        animation: fade-in $animatetime2 $animatetime2 forwards;
+      }
+    }
+  }
+}

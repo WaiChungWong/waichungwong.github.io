@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+
+section {
+  position: relative;
+  padding: 60px 5%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  .headline {
+    display: inline-block;
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .title {
+    display: block;
+    padding-bottom: 20px;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+
+    @include mobile() {
+      font-size: 36px;
+    }
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 28px;
+
+    @include mobile() {
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+
+  .list {
+    display: inline-block;
+    padding: 60px 0px;
+    width: 100%;
+  }
+}

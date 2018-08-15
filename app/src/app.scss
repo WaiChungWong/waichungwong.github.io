@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
   margin: 0px;
   padding: 0px;
   background-color: $lightergray;
@@ -12,105 +12,77 @@ body {
     min-height: 100vh;
     opacity: 0;
     animation: fade-in $animatetime2 forwards;
+    overflow: hidden;
 
     #app-logo {
       position: fixed;
-      left: 50%;
+      top: 0px;
+      left: 5%;
       width: 80px;
       height: 60px;
-      transform: translateX(-50%);
+      stroke: $black;
+      fill: $black;
+      z-index: 1;
+      transition: transform $animatetime2;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
 
-    section {
-      position: relative;
-      margin: auto;
-      padding: 60px 0px;
-      width: 90%;
-      max-width: 1000px;
-      min-height: 100vh;
-      box-sizing: border-box;
+    #contact-toggle {
+      display: inline-block;
+      position: fixed;
+      top: 0px;
+      right: 5%;
+      width: 100px;
+      padding: 20px 0px;
+      font-weight: bold;
+      text-align: right;
+      color: $black;
+      z-index: 1;
+      transition: transform $animatetime2;
+      cursor: pointer;
 
-      .headline {
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      .open,
+      .close {
         display: inline-block;
-        width: 90%;
-        max-width: 450px;
-      }
-
-      .title {
-        display: block;
-        padding-bottom: 20px;
-        font-size: 60px;
-        font-weight: bold;
-        letter-spacing: 3px;
-
-        @include mobile() {
-          font-size: 40px;
-          text-align: center;
-        }
-      }
-
-      .subtitle {
-        font-size: 20px;
-        font-weight: lighter;
-        letter-spacing: 1.5px;
-        line-height: 28px;
-
-        @include mobile() {
-          font-size: 16px;
-          line-height: 21px;
-        }
-      }
-
-      .list {
-        display: inline-block;
-        padding: 60px 0px;
         width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: width $animatetime2;
       }
 
-      #main-headline {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      .close {
+        width: 0px;
+      }
 
-        .title,
-        .subtitle {
-          text-align: center;
-          transition: $animatetime2;
-          opacity: 0;
+      &.opened {
+        color: $white;
 
-          &.title {
-            animation: slide-up $animatetime2 $animatetime2 forwards;
-          }
+        .open {
+          width: 0px;
+        }
 
-          &.subtitle {
-            animation: fade-in $animatetime2 $animatetime2 * 3 forwards;
-          }
+        .close {
+          width: 100%;
         }
       }
+    }
 
-      #inspiration-headline {
-        float: right;
+    > section,
+    > #app-logo {
+      opacity: 1;
+      transition: $animatetime2;
 
-        #inspiration-title,
-        #inspiration-subtitle {
-          text-align: right;
-        }
-      }
-
-      #inspiration-list {
-      }
-
-      #module-headline {
-        float: left;
-
-        #module-title,
-        #module-subtitle {
-          text-align: left;
-        }
-      }
-
-      #module-list {
+      &.hide {
+        opacity: 0;
+        z-index: -1;
       }
     }
   }

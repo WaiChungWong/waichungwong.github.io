@@ -1,120 +1,210 @@
 @import "../../../variables.scss";
 
 .inspiration-repo {
-  .inspiration-title {
+  .name {
     font-size: 32px;
     font-weight: lighter;
     letter-spacing: 4px;
     text-align: center;
     cursor: pointer;
+    transition: $animatetime2;
+
+    &:hover {
+      letter-spacing: 10px;
+    }
 
     @include mobile() {
       font-size: 28px;
     }
   }
 
-  .inspiration-detail {
-    margin: 10px 0px 10px 0px;
-    width: 50%;
+  .content {
+    position: relative;
+    margin: 10px 0px;
     max-height: 20px;
     overflow: hidden;
+    perspective: 1000px;
     transition: $animatetime2;
 
-    @include mobile() {
-      width: 100%;
+    .detail {
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 0px 20px;
+      width: 50%;
+
+      @include mobile() {
+        width: 100%;
+        text-shadow: 1px 1px 0px $lightergray;
+      }
+
+      .description,
+      .link {
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 28px;
+        color: transparent;
+        transition: $animatetime2;
+
+        @include mobile() {
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+
+      .link {
+        display: inline-block;
+        margin-top: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: $black;
+
+        &:hover {
+          letter-spacing: 5px;
+        }
+
+        @include mobile() {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .video {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      max-width: 50%;
+      max-height: 100%;
+      transform: translateY(-50%);
+      border: 1px solid $gray;
+      box-sizing: border-box;
+      opacity: 0;
+      z-index: -1;
+      transition: $animatetime1;
+
+      @include mobile() {
+        max-width: 100%;
+      }
+
+      :after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+      }
     }
 
     &.expanded {
-      max-height: 400px;
+      max-height: 90vh;
 
-      .inspiration-description,
-      .inspiration-link {
-        color: inherit;
+      .detail {
+        .description,
+        .link {
+          color: inherit;
+        }
       }
 
-      .inspiration-quote {
-        color: $gray;
-      }
-    }
+      .video {
+        opacity: 1;
 
-    .inspiration-quote,
-    .inspiration-description,
-    .inspiration-link {
-      padding: 0px 20px;
-      font-size: 20px;
-      font-weight: lighter;
-      letter-spacing: 1.5px;
-      line-height: 28px;
-      color: transparent;
-      transition: $animatetime2;
-
-      @include mobile() {
-        font-size: 16px;
-        line-height: 21px;
-      }
-    }
-
-    .inspiration-quote {
-      font-size: 16px;
-      letter-spacing: 1px;
-      line-height: 21px;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .inspiration-link {
-      display: inline-block;
-      margin-top: 20px;
-      font-weight: bold;
-      text-decoration: none;
-
-      &:hover {
-        letter-spacing: 3px;
-      }
-
-      @include mobile() {
-        display: block;
-        text-align: center;
+        @include mobile() {
+          opacity: 0.7;
+        }
       }
     }
   }
 
-  &:nth-child(even) .inspiration-detail {
-    margin-left: 50%;
-    border-left: 1px solid $black;
+  &:nth-child(even) {
+    .content {
+      .detail {
+        margin-left: 50%;
+        border-left: 1px solid $black;
 
-    @include mobile() {
-      margin-left: 0px;
-      border-left: none;
+        @include mobile() {
+          margin-left: 0px;
+          border-left: none;
+        }
+      }
+
+      .video {
+        right: 50%;
+        box-shadow: -20px 0px 1px -5px $gray;
+
+        @include mobile() {
+          right: 0%;
+        }
+      }
+
+      &.expanded {
+        .video {
+          transform: translateY(-50%)
+            matrix3d(
+              -0.7109,
+              0,
+              0.703279,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0.703279,
+              0,
+              0.7109,
+              0,
+              0,
+              0,
+              0,
+              1.2
+            );
+        }
+      }
     }
   }
 
-  &:nth-child(odd) .inspiration-detail {
-    text-align: right;
-    border-right: 1px solid $black;
+  &:nth-child(odd) {
+    .content {
+      .detail {
+        text-align: right;
+        border-right: 1px solid $black;
 
-    @include mobile() {
-      text-align: left;
-      border-right: none;
-    }
-  }
+        @include mobile() {
+          text-align: center;
+          border-right: none;
+        }
+      }
 
-  .inspiration-video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    opacity: 0;
-    z-index: -1;
-    transition: $animatetime1;
+      .video {
+        left: 50%;
+        box-shadow: 20px 0px 1px -5px $gray;
 
-    &.show {
-      opacity: 0.5;
+        @include mobile() {
+          left: 0%;
+        }
+      }
+
+      &.expanded {
+        .video {
+          transform: translateY(-50%)
+            matrix3d(
+              0.7109,
+              0,
+              0.70328,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0.70328,
+              0,
+              0.7109,
+              0,
+              0,
+              0,
+              0,
+              1.2
+            );
+        }
+      }
     }
   }
 }

@@ -46,13 +46,13 @@ class ModuleRepo extends Component {
 
     return (
       <div ref={r => (this.repo = r)} className="module-repo">
-        <div className="module-title" onClick={this.toggle}>
+        <div className="name" onClick={this.toggle}>
           {name}
         </div>
-        <div className={ClassNames("module-detail", { expanded })}>
-          <div className="module-description">{description}</div>
+        <div className={ClassNames("detail", { expanded })}>
+          <div className="description">{description}</div>
           <a
-            className="module-link"
+            className="link"
             href={`https://waichungwong.github.io/${name}/build`}
             target="_blank"
             rel="noopener noreferrer"
