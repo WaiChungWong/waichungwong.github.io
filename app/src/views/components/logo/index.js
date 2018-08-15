@@ -7,7 +7,7 @@ M80 220 L100 220 L140 180 L180 220 L220 180 L260 220 L300 180 L320 180
 `;
 
 const Logo = props => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="50 200 300 1">
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="70 200 280 1">
     <g className="logo-group">
       <path className="logo-path" d={LOGO_PATH} />
       <circle className="logo-dot" cx="110" cy="182" r="8" />

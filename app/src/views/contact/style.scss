@@ -10,6 +10,7 @@
   background-color: $shadow;
   opacity: 0;
   transition: left 0s $animatetime2, opacity $animatetime2;
+  overflow: hidden;
 
   &.show {
     transition: left 0s, opacity $animatetime2;
