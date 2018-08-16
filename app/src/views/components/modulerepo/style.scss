@@ -11,10 +11,6 @@
     &:hover {
       letter-spacing: 10px;
     }
-
-    @include mobile() {
-      font-size: 28px;
-    }
   }
 
   .detail {
@@ -42,11 +38,6 @@
       line-height: 28px;
       color: transparent;
       transition: $animatetime2;
-
-      @include mobile() {
-        font-size: 16px;
-        line-height: 21px;
-      }
     }
 
     .description {
@@ -62,8 +53,22 @@
       &:hover {
         letter-spacing: 5px;
       }
+    }
+  }
 
-      @include mobile() {
+  @include mobile() {
+    .name {
+      font-size: 28px;
+    }
+
+    .detial {
+      .description,
+      .link {
+        font-size: 16px;
+        line-height: 21px;
+      }
+
+      .link {
         display: block;
         text-align: center;
       }

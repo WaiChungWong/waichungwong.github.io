@@ -18,27 +18,42 @@
     left: 0px;
 
     .signature {
+      @include animate-signature-stroke();
       @include show-signature();
     }
   }
 
   .signature {
     position: absolute;
-    top: 50%;
+    top: 5%;
     left: 50%;
-    width: 120%;
-    height: 100%;
-    transform: translate(-50%, -50%) rotate(-5deg);
+    width: 100%;
+    transform: translate(-52%, 0%) rotate(-5deg);
     stroke: $white;
-    opacity: 0.1;
+    opacity: 0.2;
     z-index: -1;
   }
 
+  .comment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 400px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: $white;
+  }
+
   .button-panel {
-    margin: 20vh auto 0px auto;
-    width: 100%;
-    max-width: 600px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    width: 80%;
+    max-width: 400px;
+    margin: 0px auto 10vh auto;
     text-align: center;
+    transform: translate(-50%, 0%);
 
     &:hover .link {
       .icon {
@@ -52,6 +67,7 @@
     }
 
     .button-wrapper {
+      position: relative;
       display: inline-block;
       width: 33%;
 
@@ -61,29 +77,43 @@
 
         .icon {
           fill: $white;
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           transition: filter $animatetime1, transform $animatetime1;
         }
 
         &:hover + .name {
-          height: 60px;
+          height: 30px;
           opacity: 1;
         }
       }
 
       .name {
         position: absolute;
-        top: 50%;
+        top: -100%;
         left: 50%;
         height: 0px;
-        font-size: 48px;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
         color: $white;
         opacity: 0;
         overflow: hidden;
         transition: opacity $animatetime2, height $animatetime2;
       }
+    }
+  }
+
+  @include mobile() {
+    .signature {
+      opacity: 0.4;
+    }
+
+    .comment {
+      font-size: 16px;
+    }
+
+    .button-wrapper .link .icon {
+      width: 30px;
+      height: 30px;
     }
   }
 }

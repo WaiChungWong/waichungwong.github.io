@@ -9,10 +9,6 @@
 
     .title {
       font-size: 60px;
-
-      @include mobile() {
-        font-size: 46px;
-      }
     }
 
     .title,
@@ -28,6 +24,12 @@
       &.subtitle {
         animation: fade-in $animatetime2 $animatetime2 forwards;
       }
+    }
+  }
+
+  @include mobile() {
+    .headline .title {
+      font-size: 46px;
     }
   }
 }

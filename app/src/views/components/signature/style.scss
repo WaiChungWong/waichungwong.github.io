@@ -26,27 +26,43 @@
 @mixin show-signature() {
   .signature-stroke {
     .stroke-J {
-      transition: $animatetime2;
       stroke-dashoffset: 200;
       stroke-width: 10;
     }
 
     .stroke-dot {
-      transition: $animatetime1 $animatetime2;
       stroke-dashoffset: 950;
       stroke-width: 10;
     }
 
     .stroke-W {
-      transition: $animatetime2 * 2 $animatetime2 * 2;
       stroke-dashoffset: 0;
       stroke-width: 10;
     }
 
     .stroke-ong {
-      transition: $animatetime2 * 2 $animatetime2 * 4;
       stroke-dashoffset: 0;
       stroke-width: 10;
+    }
+  }
+}
+
+@mixin animate-signature-stroke() {
+  .signature-stroke {
+    .stroke-J {
+      transition: $animatetime2;
+    }
+
+    .stroke-dot {
+      transition: $animatetime1 $animatetime2;
+    }
+
+    .stroke-W {
+      transition: $animatetime2 * 2 $animatetime2 * 2;
+    }
+
+    .stroke-ong {
+      transition: $animatetime2 * 2 $animatetime2 * 4;
     }
   }
 }
