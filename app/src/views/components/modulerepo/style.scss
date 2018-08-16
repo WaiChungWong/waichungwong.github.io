@@ -5,6 +5,7 @@
     font-size: 32px;
     font-weight: lighter;
     letter-spacing: 4px;
+    white-space: nowrap;
     cursor: pointer;
     transition: $animatetime2;
 
@@ -58,19 +59,14 @@
 
   @include mobile() {
     .name {
-      font-size: 28px;
+      font-size: 24px;
     }
 
-    .detial {
+    .detail {
       .description,
       .link {
         font-size: 16px;
         line-height: 21px;
-      }
-
-      .link {
-        display: block;
-        text-align: center;
       }
     }
   }

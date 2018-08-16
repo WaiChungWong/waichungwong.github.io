@@ -46,7 +46,7 @@ const Contact = ({ ...props }) => (
     <div className="comment">
       If you are looking to collaborate on cool projects, you are very welcome
       to contact me.<br />I’m currently based in Hong Kong. I’m available for
-      freelance and part-time employment. I’m also open to remote jobs, too.
+      freelance and part-time work. I’m also open to remote jobs, too.
     </div>
     <div className="button-panel">
       <ContactButton
