@@ -7,7 +7,9 @@
   animation: show-shape 1s forwards;
 
   .shape {
+    user-select: none;
     transform-origin: top left;
+
     &.float1 {
       animation: floating1 ease-in-out infinite alternate;
     }

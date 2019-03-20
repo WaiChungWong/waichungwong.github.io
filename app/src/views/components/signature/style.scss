@@ -50,19 +50,19 @@
 @mixin animate-signature-stroke() {
   .signature-stroke {
     .stroke-J {
-      transition: $animatetime2;
+      transition: $animatetime2 $animatetime2;
     }
 
     .stroke-dot {
-      transition: $animatetime1 $animatetime2;
+      transition: $animatetime1 $animatetime2 * 2;
     }
 
     .stroke-W {
-      transition: $animatetime2 * 2 $animatetime2 * 2;
+      transition: $animatetime2 * 2 $animatetime2 * 3;
     }
 
     .stroke-ong {
-      transition: $animatetime2 * 2 $animatetime2 * 4;
+      transition: $animatetime2 * 2 $animatetime2 * 5;
     }
   }
 }

@@ -10,8 +10,8 @@ const RandomShape = ({ top, left, shape, perspective, rotation, hue }) => (
     style={{
       top: `${top}px`,
       left: `${left}px`,
-      transform: `translate(-50%, -50%) scale(${40 *
-        perspective}) rotate(${Math.PI * rotation}rad) `
+      transform: `translate(-50%, -50%) scale(${5 +
+        35 * perspective}) rotate(${Math.PI * rotation}rad) `
     }}
   >
     <div
@@ -20,8 +20,8 @@ const RandomShape = ({ top, left, shape, perspective, rotation, hue }) => (
         float2: rotation <= 0.5
       })}
       style={{
-        color: `hsl(${360 * hue}, 100%, 50%)`,
-        opacity: `${0.2 * (1 - perspective)}`,
+        color: `hsl(${360 * hue}, 100%, 80%)`,
+        opacity: `${0.3 + 0.2 * (1 - perspective)}`,
         animationDuration: `${18 + 4 * rotation}s`,
         animationDelay: `${5 * rotation}s`
       }}

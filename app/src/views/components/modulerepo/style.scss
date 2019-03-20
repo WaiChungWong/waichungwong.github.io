@@ -7,7 +7,7 @@
     letter-spacing: 4px;
     white-space: nowrap;
     cursor: pointer;
-    transition: $animatetime2;
+    transition: letter-spacing $animatetime2;
 
     &:hover {
       letter-spacing: 10px;
@@ -19,14 +19,14 @@
     max-height: 20px;
     overflow: hidden;
     border-left: 1px solid;
-    transition: $animatetime2;
+    transition: max-height $animatetime2;
 
     &.expanded {
       max-height: 300px;
 
       .description,
       .link {
-        color: inherit;
+        opacity: 1;
       }
     }
 
@@ -37,12 +37,8 @@
       font-weight: lighter;
       letter-spacing: 1.5px;
       line-height: 28px;
-      color: transparent;
-      transition: $animatetime2;
-    }
-
-    .description {
-      max-width: 600px;
+      opacity: 0;
+      transition: opacity $animatetime2;
     }
 
     .link {
@@ -50,10 +46,7 @@
       margin-top: 20px;
       font-weight: bold;
       text-decoration: none;
-
-      &:hover {
-        letter-spacing: 5px;
-      }
+      color: inherit;
     }
   }
 

@@ -6,24 +6,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    .title {
-      font-size: 60px;
-    }
+    text-align: center;
 
     .title,
     .subtitle {
-      text-align: center;
-      transition: $animatetime2;
+      display: inline-block;
       opacity: 0;
+    }
 
-      &.title {
-        animation: slide-up $animatetime2 0s forwards;
-      }
+    .title {
+      font-size: 50px;
+      animation: fade-in $animatetime2 forwards,
+        wobble $animatetime2 * 2 forwards;
+    }
 
-      &.subtitle {
-        animation: fade-in $animatetime2 $animatetime2 forwards;
-      }
+    .subtitle {
+      animation: fade-in $animatetime2 $animatetime2 forwards;
     }
   }
 

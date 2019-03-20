@@ -4,8 +4,6 @@ body {
   font-family: Montserrat, sans-serif;
   margin: 0px;
   padding: 0px;
-  background-color: $lightergray;
-  color: $black;
 
   #app {
     position: relative;
@@ -13,64 +11,78 @@ body {
     opacity: 0;
     animation: fade-in $animatetime2 forwards;
     overflow: hidden;
+    background-color: $white;
+    color: $black;
+    stroke: $black;
+    fill: $black;
+    transition: color $animatetime2, stroke $animatetime2, fill $animatetime2;
 
-    #app-logo {
+    &.night {
+      background-color: $night;
+      color: $white;
+      stroke: $white;
+      fill: $white;
+    }
+
+    #app-header-wrapper {
       position: fixed;
-      top: 0px;
-      left: 5%;
-      width: 80px;
-      height: 60px;
-      stroke: $black;
-      fill: $black;
+      width: 100%;
       z-index: 1;
-      transition: transform $animatetime2;
-      cursor: pointer;
 
-      &:hover {
-        transform: scale(1.2);
+      #app-header {
+        position: relative;
+        max-width: $pagewidth;
+        margin: auto;
+        padding: 0px 40px;
+        box-sizing: border-box;
+
+        #app-logo {
+          width: 80px;
+          height: 60px;
+          z-index: 1;
+          transition: transform $animatetime2;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
       }
     }
 
     #contact-toggle {
       display: inline-block;
-      position: fixed;
-      top: 0px;
-      right: 5%;
-      width: 100px;
       padding: 20px 0px;
       font-weight: bold;
       text-align: right;
-      color: $black;
+      float: right;
       z-index: 1;
-      transition: transform $animatetime2;
       cursor: pointer;
-
-      &:hover {
-        transform: scale(1.2);
-      }
 
       .open,
       .close {
         display: inline-block;
         width: 100%;
+        height: 20px;
         overflow: hidden;
         white-space: nowrap;
-        transition: width $animatetime2;
+        transition: height $animatetime2;
+        float: left;
       }
 
       .close {
-        width: 0px;
+        height: 0px;
       }
 
       &.opened {
         color: $white;
 
         .open {
-          width: 0px;
+          height: 0px;
         }
 
         .close {
-          width: 100%;
+          height: 20px;
         }
       }
     }
@@ -78,7 +90,6 @@ body {
     > section,
     > #app-logo {
       opacity: 1;
-      transition: $animatetime2;
 
       &.hide {
         opacity: 0;
@@ -105,5 +116,35 @@ body {
   to {
     padding-top: 0px;
     opacity: 1;
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
   }
 }

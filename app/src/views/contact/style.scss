@@ -30,7 +30,7 @@
     width: 100%;
     transform: translate(-52%, 0%) rotate(-5deg);
     stroke: $white;
-    opacity: 0.2;
+    opacity: 0.4;
     z-index: -1;
   }
 
@@ -55,15 +55,8 @@
     text-align: center;
     transform: translate(-50%, 0%);
 
-    &:hover .link {
-      .icon {
-        filter: blur(4px);
-      }
-
-      &:hover .icon {
-        filter: none;
-        transform: scale(1.2);
-      }
+    &:hover .link:hover .icon {
+      transform: scale(1.2);
     }
 
     .button-wrapper {
@@ -74,12 +67,13 @@
       .link {
         display: inline-block;
         width: 100%;
+        stroke-width: 0px;
 
         .icon {
           fill: $white;
           width: 40px;
           height: 40px;
-          transition: filter $animatetime1, transform $animatetime1;
+          transition: transform $animatetime1;
         }
 
         &:hover + .name {
@@ -90,7 +84,7 @@
 
       .name {
         position: absolute;
-        top: -100%;
+        bottom: 100%;
         left: 50%;
         height: 0px;
         transform: translate(-50%, 0%);

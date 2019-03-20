@@ -2,9 +2,11 @@
 
 section {
   position: relative;
-  padding: 60px 5%;
+  padding: 40px;
+  margin: auto;
   box-sizing: border-box;
   width: 100%;
+  max-width: $pagewidth;
   min-height: 100vh;
 
   .headline {
@@ -14,7 +16,7 @@ section {
   }
 
   .title {
-    display: block;
+    display: inline-block;
     padding-bottom: 20px;
     font-size: 48px;
     font-weight: bold;
