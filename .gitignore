@@ -2,4 +2,4 @@
 /node_modules
 
 # Built css files in development
-**/*.css
+src/**/*.css
