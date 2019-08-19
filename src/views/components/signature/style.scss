@@ -1,0 +1,77 @@
+@import "../../../variables.scss";
+
+.signature {
+  transform: scale(1.5);
+  transition: transform $fast;
+  stroke: inherit;
+}
+
+.signature-clip-stroke {
+  stroke: inherit;
+  stroke-width: 1;
+}
+
+.signature-stroke {
+  stroke: inherit;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.signature-stroke-J,
+.signature-stroke-dot,
+.signature-stroke-W,
+.signature-stroke-ong {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 0;
+}
+
+.signature-stroke-J {
+  animation: stroke-J 0.5s 0.5s forwards;
+}
+
+.signature-stroke-dot {
+  animation: stroke-dot $fast 1s forwards;
+}
+
+.signature-stroke-W {
+  animation: stroke-W 1s 1.5s forwards;
+}
+
+.signature-stroke-ong {
+  animation: stroke-ong 1s 2.5s forwards;
+}
+
+@keyframes stroke-J {
+  to {
+    stroke-dashoffset: 200;
+    stroke-width: 10;
+  }
+}
+
+@keyframes stroke-dot {
+  to {
+    stroke-dashoffset: 950;
+    stroke-width: 10;
+  }
+}
+
+@keyframes stroke-W {
+  to {
+    stroke-dashoffset: 0;
+    stroke-width: 10;
+  }
+}
+
+@keyframes stroke-ong {
+  to {
+    stroke-dashoffset: 0;
+    stroke-width: 10;
+  }
+}
+
+@include mobile() {
+  .signature {
+    transform: scale(1);
+  }
+}

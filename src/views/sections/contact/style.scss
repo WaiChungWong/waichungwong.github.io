@@ -1,0 +1,30 @@
+@import "../../../variables.scss";
+
+.contact-title {
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact-comment {
+  margin: auto;
+  max-width: 450px;
+  font-size: 21px;
+  font-style: italic;
+}
+
+.contact-link-list {
+  text-align: center;
+}
+
+.contact-link {
+  display: inline-block;
+  margin: 40px 20px;
+}
+
+.contact-link-icon {
+  width: 40px;
+  height: 40px;
+  fill: inherit;
+}

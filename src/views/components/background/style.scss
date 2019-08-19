@@ -1,0 +1,34 @@
+@import "../../../variables.scss";
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: background-color $fast;
+  z-index: -1;
+}
+
+.background.night-mode {
+  background-color: $night;
+}
+
+.background-shape-wrapper {
+  position: absolute;
+  opacity: 0;
+  animation: show-shape $slow forwards;
+}
+
+.background-shape {
+  font-size: 60em;
+  user-select: none;
+  transform-origin: top left;
+}
+
+@keyframes show-shape {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

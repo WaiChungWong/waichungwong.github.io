@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="nosnippet" />
+    <meta name="description" content="Hello! I'm a Full Stack Web Developer!" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      sizes="256x256 128x128 64x64 32x32 24x24 16x16"
+      href="%PUBLIC_URL%/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700"
+    />
+    <title>John Wong | Full Stack Web Developer</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: Montserrat, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #no-javascript {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        max-width: 800px;
+        transform: translate(-50%, -50%);
+        color: #888888;
+        font-family: sans-serif;
+      }
+
+      #no-javascript h1 {
+        text-align: center;
+        margin: 0px 0px 40px 0px;
+        font-size: 5vw;
+      }
+
+      #no-javascript span {
+        font-size: 3vw;
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-123990333-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-123990333-1");
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div id="no-javascript">
+        <h1>Oh, no JavaScript :(</h1>
+        <span>
+          But my website only works when JavaScript is enabled. Could you enable that for me, please?
+        <span>
+      </div>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>

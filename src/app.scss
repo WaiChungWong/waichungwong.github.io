@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+section {
+  padding: 20px;
+}
+
+.night-mode-switch {
+  float: right;
+  margin: 20px;
+}
+
+.app {
+  fill: $black;
+  color: $black;
+  stroke: $black;
+  transition: fill $fast, color $fast, stroke $fast;
+}
+
+.app.night-mode {
+  fill: $white;
+  color: $white;
+  stroke: $white;
+}

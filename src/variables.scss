@@ -1,0 +1,18 @@
+$white: #f0f0f0;
+$lightBlue: #61b5ff;
+$lightGray: #cccccc;
+$gray: #b0b0b0;
+$darkGray: #555555;
+$night: #0b2038;
+$black: #222222;
+$dimLight: rgba(255, 255, 255, 0.3);
+$shadow: rgba(0, 0, 0, 0.4);
+
+$fast: 0.3s;
+$slow: 1s;
+
+@mixin mobile() {
+  @media only screen and (max-width: 650px) {
+    @content;
+  }
+}

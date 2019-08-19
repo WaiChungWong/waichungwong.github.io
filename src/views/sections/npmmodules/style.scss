@@ -1,0 +1,118 @@
+@import "../../../variables.scss";
+
+.npm-modules-title {
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.npm-modules-loader {
+  margin: 50px auto;
+  border: 10px solid $gray;
+  border-radius: 50%;
+  border-top: 10px solid;
+  width: 80px;
+  height: 80px;
+  animation: npm-modules-spin $slow linear infinite;
+}
+
+.npm-modules-error {
+  margin: 50px auto;
+  max-width: 450px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.npm-modules-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.npm-modules-item {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: background-color $fast, box-shadow $fast, transform $fast;
+
+  &:hover {
+    background-color: $dimLight;
+    box-shadow: 0px 2px 8px $shadow;
+    transform: translateY(-5px);
+  }
+
+  .npm-modules-item-title {
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .npm-modules-item-tags {
+    margin: 10px 0px;
+
+    a {
+      margin-right: 5px;
+    }
+  }
+
+  .npm-modules-item-install {
+    img {
+      width: 100%;
+    }
+  }
+
+  .npm-modules-item-demo,
+  .npm-modules-item-source {
+    color: inherit;
+    line-height: 40px;
+    text-decoration: none;
+    margin-right: 20px;
+
+    &:hover {
+      filter: brightness(5);
+    }
+  }
+}
+
+@media only screen and (min-width: 460px) {
+  .npm-modules-list {
+    width: 420px;
+  }
+}
+
+@media only screen and (min-width: 880px) {
+  .npm-modules-list {
+    width: 840px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .npm-modules-list {
+    width: 1260px;
+  }
+}
+
+@media only screen and (min-width: 1720px) {
+  .npm-modules-list {
+    width: 1680px;
+  }
+}
+
+@keyframes npm-modules-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
