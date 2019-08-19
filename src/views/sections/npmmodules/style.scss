@@ -57,15 +57,10 @@
     text-align: center;
   }
 
-  .npm-modules-item-tags {
+  .npm-modules-item-install {
+    display: block;
     margin: 10px 0px;
 
-    a {
-      margin-right: 5px;
-    }
-  }
-
-  .npm-modules-item-install {
     img {
       width: 100%;
     }

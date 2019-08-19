@@ -4,30 +4,10 @@ import { loadNPMModules } from "../../../utils";
 
 import "./style.css";
 
-const Module = ({ name, source, ...props }) => {
+const Module = ({ name, description, source, ...props }) => {
   return (
     <div className="npm-modules-item">
       <span className="npm-modules-item-title">{name}</span>
-      <div className="npm-modules-item-tags">
-        <a
-          href={`https://travis-ci.org/WaiChungWong/${name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={`https://img.shields.io/travis/WaiChungWong/${name}.svg`}
-            alt={name}
-          />
-        </a>
-        <a
-          href={`https://npmjs.org/package/${name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={`https://img.shields.io/npm/dm/${name}.svg`} alt={name} />
-        </a>
-      </div>
-
       <a
         className="npm-modules-item-install"
         href={`https://nodei.co/npm/${name}`}
@@ -36,6 +16,7 @@ const Module = ({ name, source, ...props }) => {
       >
         <img src={`https://nodei.co/npm/${name}.png`} alt={name} />
       </a>
+      <div className="npm-modules-item-desc">{description}</div>
       <a
         className="npm-modules-item-source"
         href={source}

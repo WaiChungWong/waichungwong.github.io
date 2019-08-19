@@ -39,6 +39,11 @@
       backface-visibility: hidden;
     }
 
+    .skill-badge-front {
+      opacity: 1;
+      transition: opacity $fast/2 $fast/2;
+    }
+
     .skill-badge-back {
       position: relative;
       transform: rotateY(180deg);
@@ -61,6 +66,11 @@
   &:hover .skill-badge-inner,
   &:focus .skill-badge-inner {
     transform: rotateY(180deg);
+
+    .skill-badge-front {
+      opacity: 0;
+      transition: opacity $fast;
+    }
   }
 
   @include mobile() {
