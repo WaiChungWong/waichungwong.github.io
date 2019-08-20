@@ -9,6 +9,8 @@ env:
 after_success: |
   if [ -n "$GITHUB_TOKEN" ]; then
     git checkout master
+    rm -rf static
+    rm -rf precache-*
     npm run build
     rsync -r build/* .
     rm -rf build
